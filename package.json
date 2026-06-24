@@ -1,0 +1,16 @@
+{
+  "name": "pdf-generator-portal",
+  "version": "1.0.0",
+  "description": "Upload a zip of the brochure code and generate a PDF using headless Chrome",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.1",
+    "puppeteer-core": "^24.2.1"
+  }
+}

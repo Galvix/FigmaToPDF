@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Brochure Engine</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Ambient background glow elements -->
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+
+  <div class="container">
+    <header>
+      <div class="logo-area">
+        <span class="badge">BROCHURE ENGINE</span>
+      </div>
+      <h1>PDF BROCHURE <span class="highlight">ENGINE</span></h1>
+      <p class="subtitle">Upload a ZIP file of the brochure codebase. Our compiler will spin up a sandbox server, verify web fonts, render the page headlessly, and generate a print-ready A5 PDF document.</p>
+    </header>
+
+    <main class="card">
+      <form id="upload-form">
+        <div id="dropzone" class="dropzone">
+          <input type="file" id="file-input" name="file" accept=".zip" required>
+          <div class="dropzone-content">
+            <div class="icon-wrap">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+            </div>
+            <h3>Drag & drop your codebase ZIP</h3>
+            <p>or <span class="browse-link">browse local files</span></p>
+            <span class="file-spec">Supported formats: .zip (brochure codebase package)</span>
+          </div>
+          <div id="selected-file" class="selected-file-info hidden">
+            <span class="file-icon">📦</span>
+            <div class="file-details">
+              <span id="file-name" class="file-name">filename.zip</span>
+              <span id="file-size" class="file-size">0 KB</span>
+            </div>
+            <button type="button" id="remove-file" class="remove-btn">&times;</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">BROCHURE PRINT SIZE</label>
+          <div class="size-selector">
+            <label class="size-option">
+              <input type="radio" name="size" value="a5" checked>
+              <div class="option-card">
+                <span class="option-title">A5 Format (Standard)</span>
+                <span class="option-desc">148 × 210 mm · Native size</span>
+              </div>
+            </label>
+            <label class="size-option">
+              <input type="radio" name="size" value="a4">
+              <div class="option-card">
+                <span class="option-title">A4 Format (Scaled)</span>
+                <span class="option-desc">210 × 297 mm · 1.41x HD Scale</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="submit" id="submit-btn" class="btn btn-primary disabled" disabled>
+            <span class="btn-text">Generate Brochure PDF</span>
+            <span class="spinner hidden"></span>
+          </button>
+        </div>
+      </form>
+
+      <!-- Progress / Console Logs Area -->
+      <div id="progress-container" class="progress-area hidden">
+        <div class="progress-header">
+          <span class="status-text">Processing Codebase...</span>
+          <span id="progress-percent">0%</span>
+        </div>
+        <div class="progress-bar-wrap">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+        <div id="log-terminal" class="terminal-logs">
+          <div class="log-line system">&gt;_ Initializing sandbox environment...</div>
+        </div>
+      </div>
+
+      <!-- Success Action Area -->
+      <div id="success-container" class="success-area hidden">
+        <div class="success-icon">✓</div>
+        <h2>PDF Generated Successfully</h2>
+        <p id="success-info">Your print-ready brochure PDF is ready for download.</p>
+        <a id="download-link" href="#" class="btn btn-success" download="brochure.pdf">
+          Download brochure.pdf
+        </a>
+      </div>
+    </main>
+
+    <footer>
+      <p>PDF BROCHURE ENGINE v1.0.0</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
