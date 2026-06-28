@@ -52,7 +52,7 @@ npm install
 npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3080](http://localhost:3080) in your browser.
 
 ## Usage
 
@@ -69,7 +69,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### Generating the PDF
 
-1. Open the portal UI at `http://localhost:3000`
+1. Open the portal UI at `http://localhost:3080`
 2. Drag and drop or browse to select the ZIP file
 3. Choose a print size: **A5** (148 x 210 mm) or **A4** (210 x 297 mm, 1.41x scaled)
 4. Click **Generate Brochure PDF**
